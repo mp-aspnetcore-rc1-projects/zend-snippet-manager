@@ -1,0 +1,26 @@
+<? if(count($this->accounts)>0):?>
+<?=$this->grid(
+  array(
+    "head"=>array("id"=>"id","username"=>"username","email"=>"email","confirmed"=>"confirmed"),
+    "body"=>$this->accounts->toArray(),
+    "extraColumns"=>array(
+      array(
+        "label"=>"update",
+        "content"=>"<a class='delete' href='{$this->url(array('action'=>'delete'))}/id/{{id}}'>Delete</a>"
+        ),
+      array(
+        "label"=>"delete",
+        "content"=>"<a href='{$this->url(array('action'=>'update'))}/id/{{id}}'>Update</a>"
+      )
+    )
+  )
+
+  )?>
+
+<?//var_dump($this->accounts)?>
+<? $this->headScript()->appendFile($this->baseUrl("js/jquery.js")) ?>
+
+<?=$this->inlineScript()->appendFile($this->baseUrl("js/delete.js"))?>
+<?else:?>
+<p>No account found</p>
+<?endif?>

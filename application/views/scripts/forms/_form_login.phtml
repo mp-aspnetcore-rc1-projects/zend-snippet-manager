@@ -1,0 +1,28 @@
+<form id="<?= $this->element->getName() ?>" name='<?= $this->element->getName() ?>' action="<?= $this->element->getAction(); ?>"
+      method="<?= $this->element->getMethod(); ?>">
+        <? if (count($this->element->getErrorMessages()) > 0): ?>
+    <ul class='error'>
+      <? foreach ($this->element->getErrorMessages() as $error): ?>
+        <?= "<li>$error</li>" ?>
+      <? endforeach; ?>
+    </ul>
+  <? endif; ?>
+  <p>
+    E-mail Address<br />
+    <?= $this->element->email; ?>
+  </p>
+  <p>
+    Password<br />
+    <?= $this->element->pswd; ?>
+  </p>
+
+  <p><?= $this->element->public ?>
+    Stay logged ?
+  </p>
+
+  <p>
+    <?= $this->element->submit; ?>
+  </p>
+
+</form>
+<? //var_dump($this) ?>

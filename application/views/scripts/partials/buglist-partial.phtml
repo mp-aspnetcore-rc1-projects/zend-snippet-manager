@@ -1,0 +1,14 @@
+<?php $view = Zend_Layout::getMvcInstance()->getView();?>
+<tr>
+<td><?=$this->id?></td>
+<td><?=$this->author?></td>
+<td><?=date("c",$this->created)?></td>
+<td><?=$this->url?></td>
+<td><?=$this->description?></td>
+<td><?=$this->priority?></td>
+<td><?=$this->status?></td>
+<td><a href='<?=$view->url(array("action"=>"update","id"=>$this->id))?>'>Update</a></td>
+<td><a href='<?=$view->url(array("action"=>"delete","id"=>$this->id))?>'>Delete</a></td>
+
+
+</tr>

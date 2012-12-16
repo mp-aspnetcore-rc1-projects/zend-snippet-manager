@@ -1,0 +1,95 @@
+@charset "utf-8";
+@import  url("app/header.css");
+@import  url("app/footer.css");
+@import  url("app/body.css");
+@import  url("app/dialog.css");
+@import  url("app/snippets.css");
+@import  url("app/categories.css");
+@import  url("app/gradients.css");
+
+
+
+html,body{
+  margin:0;
+  padding:0;
+  height:100%;
+
+}
+body{
+  font-size:16px;
+  font-family:Arial,Tahoma,Verdana,Helvetica,Arial, sans-serif;
+}
+a{
+  color: inherit;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
+hr{
+  border:1px solid #AAA;
+  margin: 0 0 20px 0;
+  border-collapse: collapse;
+
+}
+.error{
+  color:#D00;
+  font-weight: bold;
+  padding-left:25px;
+}
+
+
+
+input[type=text],input[type=password]{
+  border:1px solid #333;
+
+}
+button{
+  border:1px solid #888;
+  margin-left: 0px;
+  background-color:#EEE;
+}
+ul{
+  list-style: none;
+  padding-left: 0;
+
+}
+
+.prettyprint{
+  font-size: 12px;
+}
+pre{
+  white-space: pre-wrap;
+}
+.left{
+  float:left;
+}
+
+.container{
+  min-width: 900px;
+  margin:0;
+  padding:0;
+  text-align: center;
+  background-color:#EEE;
+
+}
+.footer{
+  clear:both;
+}
+
+
+dt,dd,dl{
+  margin:0;
+  padding:0;
+  text-indent: 0;
+}
+dt{
+  margin-top:10px;
+}
+form{
+  font-size: .7em;
+}
+form .captcha{
+  float:left;
+  clear:both;
+}

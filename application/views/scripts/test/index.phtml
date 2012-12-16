@@ -1,0 +1,31 @@
+<a href="<?= $this->url(array("action" => "create")) ?>">New test</a>
+<?
+if (count($this->tests) > 0):
+?>
+<?$paginationControl=$this->paginationControl($this->paginator,'Sliding','partials/pagination-control.phtml')?>
+<?=$paginationControl?>
+<?=
+$this->grid(
+    array(
+        "head" => array("id" => "Id", "title" => "Title", "created" => "Created"),
+        "body" => $this->paginator,
+        "extraColumns" => array(
+            array("label" => "Update", "content" => "<a href='{$this->url(array('action' => 'update'))}/id/{{id}}'>Update</a>"),
+            array("label" => "Delete", "content" => "<a class='delete' href='{$this->url(array('action' => 'delete'))}/id/{{id}}'>Delete</a>")
+            )
+            )
+            );
+?>
+<?=$paginationControl?>
+<?=$this->inlineScript()->appendFile($this->baseUrl("js/delete.js"))?>
+<?$this->headScript()->appendFile($this->baseUrl("js/jquery.js"))?>
+
+
+<?
+else:
+?>
+<p>No test found</p>
+"
+<?
+endif;
+?>

@@ -1,0 +1,20 @@
+<?php $view = Zend_Layout::getMvcInstance()->getView();?>
+
+<tr>
+<td><?=$view->escape($this->menuItem->id)?></td>
+<td><a title="show" href='<?=$view->url(array("controller"=>"menu-item","action"=>"show","id"=>$this->menuItem->id),null,true)?>'><?=$view->escape($this->menuItem->label)?></a></td>
+<td><?=$view->escape($this->menuItem->getParentItem()->name)?></td>
+<td><?
+if(!empty($this->menuItem->link)):
+$url = $this->menuItem->link;
+elseif(!empty($this->menuItem->page_id)):
+$url = $this->menuItem->page_id;
+else:
+$url = $this->menuItem->action;
+endif;
+echo $view->escape($url);
+?></td>
+<td><?=$view->escape($this->menuItem->position)?></td>
+<td><a href='<?=$view->url(array("action"=>"update","id"=>$this->menuItem->id))?>'>Update</a></td>
+<td><a class="delete" href='<?=$view->url(array("action"=>"delete","id"=>$this->menuItem->id))?>'>Delete</a></td>		
+</tr>

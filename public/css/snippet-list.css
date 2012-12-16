@@ -1,0 +1,10 @@
+/**
+form.css
+styles du formulaire
+**/
+@charset "utf-8";
+
+.snippet-list-template{
+  display:inline-block;
+  vertical-align: top;
+}

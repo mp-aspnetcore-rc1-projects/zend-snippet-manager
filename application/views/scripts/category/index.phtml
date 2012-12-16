@@ -1,0 +1,40 @@
+<p>
+<a href="<?=$this->url(array("action"=>"create","controller"=>"category"),null,true)?>">Add a new Category</a>
+</p>
+<? if (count($this->categories) > 0): ?>
+  <? /*
+    <ul>
+    <? foreach($this->categories as $category): ?>
+    <li>
+    <a href='<?=$this->url(
+    array("controller"=>"category",
+    "action"=>"update",
+    "id"=>$category["id"]))?>'>
+    <?=$category["title"]?>
+    </a>
+    </li>
+    <? endforeach;?>
+    </ul> */
+  ?>
+  <?=
+  $this->grid(
+          array(
+              "head" => array("title" => "title","description"=>"description"),
+              "body" => $this->categories,
+              "extraColumns" => array(
+                  array(
+                      "label" => "update",
+                      "content"=>'<a href=\''.$this->url(array("action"=>'update','controller'=>'category')).'/id/{{id}}\'>update</a>'
+                      ),
+                  array(
+                      "label" => "delete",
+                      "content"=>'<a href=\''.$this->url(array("action"=>'delete','controller'=>'category')).'/id/{{id}}\' class="delete">delete</a>'
+                      )
+              )
+          )
+  )
+  ?>
+<? endif; ?>
+<?#@NOTE @ZEND ajouter un script javascript dans le corps de la page ?>
+<?$this->headScript()->appendFile("http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js")?>
+<?=$this->inlineScript()->appendFile($this->baseUrl("js/delete.js"))?>

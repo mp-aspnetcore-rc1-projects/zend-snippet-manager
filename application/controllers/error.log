@@ -1,0 +1,58 @@
+[14-May-2012 02:50:50 UTC] PHP Warning:  strtr() expects parameter 1 to be string, array given in /home/paraiso/include/Zend/Mail.php on line 1216
+[14-May-2012 02:52:29 UTC] PHP Warning:  strtr() expects parameter 1 to be string, array given in /home/paraiso/include/Zend/Mail.php on line 1216
+[14-May-2012 16:11:41 UTC] PHP Warning:  strtr() expects parameter 1 to be string, array given in /home/paraiso/include/Zend/Mail.php on line 1216
+[19-May-2012 00:04:15 UTC] PHP Fatal error:  Uncaught exception 'Zend_Acl_Exception' with message 'Resource '404testpage4525d2fdc' not found' in /home/paraiso/include/Zend/Acl.php:365
+Stack trace:
+#0 /home/paraiso/include/Zend/Acl.php(846): Zend_Acl->get('404testpage4525...')
+#1 /home/paraiso/www/public/snippetmanager/library/CMS/Controller/Plugin/Acl.php(52): Zend_Acl->isAllowed('guest', '404testpage4525...', 'index')
+#2 /home/paraiso/include/Zend/Controller/Plugin/Broker.php(309): CMS_Controller_Plugin_Acl->preDispatch(Object(Zend_Controller_Request_Http))
+#3 /home/paraiso/include/Zend/Controller/Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 /home/paraiso/include/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 /home/paraiso/include/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 /home/paraiso/www/public/snippetmanager/public/index.php(26): Zend_Application->run()
+#7 {main}
+  thrown in /home/paraiso/include/Zend/Acl.php on line 365
+[19-May-2012 00:04:15 UTC] PHP Fatal error:  Uncaught exception 'Zend_Acl_Exception' with message 'Resource '404javascript.js' not found' in /home/paraiso/include/Zend/Acl.php:365
+Stack trace:
+#0 /home/paraiso/include/Zend/Acl.php(846): Zend_Acl->get('404javascript.j...')
+#1 /home/paraiso/www/public/snippetmanager/library/CMS/Controller/Plugin/Acl.php(52): Zend_Acl->isAllowed('guest', '404javascript.j...', 'index')
+#2 /home/paraiso/include/Zend/Controller/Plugin/Broker.php(309): CMS_Controller_Plugin_Acl->preDispatch(Object(Zend_Controller_Request_Http))
+#3 /home/paraiso/include/Zend/Controller/Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 /home/paraiso/include/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 /home/paraiso/include/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 /home/paraiso/www/public/snippetmanager/public/index.php(26): Zend_Application->run()
+#7 {main}
+  thrown in /home/paraiso/include/Zend/Acl.php on line 365
+[19-May-2012 00:06:58 UTC] PHP Fatal error:  Uncaught exception 'Zend_Acl_Exception' with message 'Resource '404javascript.js' not found' in /home/paraiso/include/Zend/Acl.php:365
+Stack trace:
+#0 /home/paraiso/include/Zend/Acl.php(846): Zend_Acl->get('404javascript.j...')
+#1 /home/paraiso/www/public/snippetmanager/library/CMS/Controller/Plugin/Acl.php(52): Zend_Acl->isAllowed('guest', '404javascript.j...', 'index')
+#2 /home/paraiso/include/Zend/Controller/Plugin/Broker.php(309): CMS_Controller_Plugin_Acl->preDispatch(Object(Zend_Controller_Request_Http))
+#3 /home/paraiso/include/Zend/Controller/Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 /home/paraiso/include/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 /home/paraiso/include/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 /home/paraiso/www/public/snippetmanager/public/index.php(26): Zend_Application->run()
+#7 {main}
+  thrown in /home/paraiso/include/Zend/Acl.php on line 365
+[19-May-2012 00:12:16 UTC] PHP Fatal error:  Uncaught exception 'Zend_Acl_Exception' with message 'Resource 'google617e32c152f11e20.html' not found' in /home/paraiso/include/Zend/Acl.php:365
+Stack trace:
+#0 /home/paraiso/include/Zend/Acl.php(846): Zend_Acl->get('google617e32c15...')
+#1 /home/paraiso/www/public/snippetmanager/library/CMS/Controller/Plugin/Acl.php(52): Zend_Acl->isAllowed('guest', 'google617e32c15...', 'index')
+#2 /home/paraiso/include/Zend/Controller/Plugin/Broker.php(309): CMS_Controller_Plugin_Acl->preDispatch(Object(Zend_Controller_Request_Http))
+#3 /home/paraiso/include/Zend/Controller/Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 /home/paraiso/include/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 /home/paraiso/include/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 /home/paraiso/www/public/snippetmanager/public/index.php(26): Zend_Application->run()
+#7 {main}
+  thrown in /home/paraiso/include/Zend/Acl.php on line 365
+[19-May-2012 00:12:19 UTC] PHP Fatal error:  Uncaught exception 'Zend_Acl_Exception' with message 'Resource 'google617e32c152f11e20.html' not found' in /home/paraiso/include/Zend/Acl.php:365
+Stack trace:
+#0 /home/paraiso/include/Zend/Acl.php(846): Zend_Acl->get('google617e32c15...')
+#1 /home/paraiso/www/public/snippetmanager/library/CMS/Controller/Plugin/Acl.php(52): Zend_Acl->isAllowed('guest', 'google617e32c15...', 'index')
+#2 /home/paraiso/include/Zend/Controller/Plugin/Broker.php(309): CMS_Controller_Plugin_Acl->preDispatch(Object(Zend_Controller_Request_Http))
+#3 /home/paraiso/include/Zend/Controller/Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 /home/paraiso/include/Zend/Application/Bootstrap/Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 /home/paraiso/include/Zend/Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 /home/paraiso/www/public/snippetmanager/public/index.php(26): Zend_Application->run()
+#7 {main}
+  thrown in /home/paraiso/include/Zend/Acl.php on line 365

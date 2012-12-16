@@ -1,0 +1,7 @@
+<!-- partial test -->
+<tr class='<?=$this->cycle(array(),'rows')->next()?>'>
+  <td><?= $this->snippet->id ?></td>
+  <td><?="<a href='{$this->url(array("action"=>"show","id"=>$this->snippet->id))}'>{$this->escape($this->snippet->title)}</a>"?></td>
+  <td><?= $this->snippet->description ?></td>
+  <td><?= $this->snippet->GetSnippetCategoryName()?></td>
+</tr>

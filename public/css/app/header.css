@@ -1,0 +1,69 @@
+/** HEADER STYLES
+styles of the application headers
+**/
+.app-head{
+  padding:0;
+  z-index: 20;
+  text-align:left;
+  padding-left: 15px;
+  margin-top: 0;
+  color:#EEE;
+  height:70px;
+  font-size:1.2em;
+  background:#222 url("../../images/header_background.png") no-repeat;
+}
+.app-head .search{
+  display:inline-block;
+}
+.app-head ul{
+  list-style: none;
+  color:#EEE;
+  margin: 0;
+  padding:0;
+  display:inline-block;
+}
+.app-head ul li{
+  display:inline-block;
+  font-size: 0.7em;
+  margin: 0;
+  padding:0;
+}
+.app-head ul li:before{
+  content: "| ";
+}
+.app-head ul li.first:before{
+  content : "";
+}
+.app-head .logo{
+  display:inline-block;
+  width:170px;
+  height:44px;
+  margin-top: 15px;
+  vertical-align: sub;
+  background: url("../../images/logo.png") 0 0 no-repeat;
+}
+.first{
+  padding-left: 15px;
+}
+.app-head .html-logo{
+  display:inline-block;
+  width:32px;
+  height:32px;
+  background:url("../../images/HTML5_Badge_32.png") 0 0 no-repeat;
+}
+.app-head .commands{
+  display: inline-block;
+}
+.app-head .menu{
+  margin-left: 16px;
+  width:620px;
+  display:inline-block;
+}
+
+.ui-menu-item{
+  font-size:.7em;
+}
+
+.app-head #account-link{
+  display:inline-block;
+}

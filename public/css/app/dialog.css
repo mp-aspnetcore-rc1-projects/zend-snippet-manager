@@ -1,0 +1,35 @@
+/** HEADER STYLES
+styles of the application headers
+**/
+.dialog{
+  font-size:12px;
+  width:auto !important ;
+/*  background: #FFF url('../../images/ajax-loader.gif')  no-repeat 200px 200px !important;*/
+}
+.dialog .ui-dialog-titlebar,.dialog .ui-widget-header{
+  font-size: 1.1em;
+  background:#333;
+  color:#EEE;
+}
+.dialog textarea{
+  border:1px solid #333;
+}
+.dialog ul.errors{
+  color:#F22;
+  font-weight: bold;
+}
+
+.snippet-form.ui-dialog-content{
+  
+}
+
+.progress-dialog{
+  text-align: center;
+}
+.dialog{
+  font-family:Arial,Verdana,Tahoma,sans-serif !important ;
+}
+
+.ui-widget-overlay {
+  opacity: 0.50 !important ;
+}

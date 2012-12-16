@@ -1,0 +1,15 @@
+<form id='snippet'
+      method="<?= $this->element->getMethod() ?>"
+      action="<?= $this->element->getAction() ?>">
+  <!-- Snippet form -->
+  <h3>Title</h3>
+  <?= $this->element->title ?>
+  <h3>Description</h3>
+  <?= $this->element->description ?>
+  <h3>Content</h3>
+  <?= $this->element->content ?>
+  <p>
+    <?= $this->element->reset ?>
+    <?= $this->element->submit ?>
+  </p>
+</form>

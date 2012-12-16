@@ -1,0 +1,83 @@
+<?php
+$this->title==null AND $this->title=" ";
+$this->subtitle==null AND $this->subtitle=" ";
+$this->layout()->adminNav = $this->action("render","menu",null,array("id"=>$this->adminMenuId));
+$this->layout()->loginMenu = $this->action("render-login-menu","account");
+?>
+<?= $this->doctype() ?>
+<html>
+<head>
+<meta charset="UTF-8">
+<?  $this->headLink()->appendStylesheet('http://fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700')?>
+<?  $this->loadSkin($this->skin) ?>
+<?= $this->headLink()?>
+<?= $this->headTitle()->setSeparator(" - ") ?>
+<?= $this->headScript() ?>
+<?=$this->jQuery()->setVersion("1.7.1")->setUIVersion("1.8.19") ?>
+<?=$this->headLink()->appendStylesheet($this->baseUrl('/css/prettify.css')) ?>
+<?=$this->headLink()->appendStylesheet($this->baseUrl('/css/smoothness/jquery-ui-1.8.19.custom.css')) ?>
+</head>
+<body>
+	<div class="header wrapper">
+		<div class="inner-header container_16">
+			<a href='<?= $this->baseUrl("/") ?>'>
+				<div class="title grid_6 alpha">Snippet Manager , share find and
+					save your code</div>
+			</a>
+			<div class="login-menu grid_10 omega">
+				<?=$this->layout()->loginMenu?>
+			</div>
+		</div>
+	</div>
+
+	<div class="wrapper">
+		<div class="content container_16">
+			<div class="nav">
+				<?= $this->render("sublayouts/nav.phtml") ?>
+			</div>
+			<div class="contextual-menus grid_10" style='float:right'>
+				<?=$this->layout()->adminNav?>
+			</div>
+			<div class='grid_6 '>
+				<div class='page-title'>
+					<div>
+						<?=$this->translate($this->title)?>
+					</div>
+				</div>
+
+
+			</div>
+			<div class="main grid_16">
+				<h2>
+					<?=$this->translate($this->subtitle)?>
+				</h2>
+				<?= $this->render("sublayouts/flashmessages.phtml") ?>
+				<? /* @NOTE @ZEND afficher le contenu principal généré par le controlleur appelé */ ?>
+				<?= $this->layout()->content ?>
+			</div>
+		</div>
+	</div>
+	<div class="footer wrapper">
+		<div class=" container_16">
+			<div class='footer-nav grid_16 alpha omega'>
+				<p>&nbsp;</p>
+				<p>&copy; 2008-2012 M.Paraiso. Design M.Paraiso.</p>
+				<p>
+					<?= $this->render("sublayouts/nav.phtml") ?>
+				</p>
+			</div>
+
+		</div>
+
+	</div>
+	<div class="utils white-background container_16">
+		<?
+		# @ZEND render a view script
+		$this->addScriptPath(APPLICATION_PATH . "/views/scripts");
+		?>
+		<?= $this->render('util/profiler.phtml') ?>
+	</div>
+
+</body>
+</html>
+

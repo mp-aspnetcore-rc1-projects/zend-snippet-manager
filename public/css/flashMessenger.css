@@ -1,0 +1,13 @@
+/** FLASH MESSENGER **/
+ul.messages{
+  list-style: none;
+  margin-left: 0;
+  padding-left:0;
+}
+ul.messages li{
+  width:60%;
+  border:1px solid #AAA;
+  background: #EEE;
+  padding:5px 5px 3px 5px ;
+  maring:2px 3px 5px 0px;
+}

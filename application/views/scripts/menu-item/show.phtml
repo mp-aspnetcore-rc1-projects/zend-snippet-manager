@@ -1,0 +1,12 @@
+<ul>
+<li>Id : <?=$this->menuItem->id ?></li>
+<li>Label : <?=$this->menuItem->label ?></li>
+<li>Menu : <?=$this->menuItem->getParentItem()->name ?></li>
+<li>Page id : <?=$this->menuItem->page_id ?></li>
+<li>Link : <?=$this->menuItem->link?></li>
+<li>Position : <?=$this->menuItem->position ?></li>
+</ul>
+<p>
+<button><a href="<?=$this->url(array("action"=>"update","id"=>$this->menuItem->id)) ?>"> Update </a></p></button>
+<button><a href="<?=$this->url(array("action"=>"index","menu_id"=>$this->menuItem->menu_id)) ?>">Back to menu item list</a></button>
+</p>

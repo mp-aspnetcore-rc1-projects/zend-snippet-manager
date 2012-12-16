@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata>
+	<nav>
+		<accountManagement>
+			<label>
+				Accounts
+			</label>
+			<uri></uri>
+			<resource>account</resource>
+			<privilege>create</privilege>
+			<pages>
+				<list>
+					<label>All acounts</label>
+					<resource>account</resource>
+					<uri></uri>
+					<module>default</module>
+					<controller>account</controller>
+					<action>index</action>
+				</list>
+				<create>
+					<label>Create account</label>
+					<resource>account</resource>
+					<uri></uri>
+					<module>default</module>
+					<controller>account</controller>
+					<action>create</action>
+				</create>
+			</pages>
+		</accountManagement>
+		<account>
+			<label>My Account</label>
+			<uri></uri>
+			<resource>account</resource>
+			<privilege>show</privilege>
+			<pages>
+				<profile>
+					<label>profile infos</label>
+					<resource>account</resource>
+					<controller>account</controller>
+					<privilege>show</privilege>
+					<action>show</action>
+				</profile>
+				<password>
+					<label>change password</label>
+					<resource>account</resource>
+					<controller>account</controller>
+					<!-- <privilege>change-password</privilege> -->
+					<action>change-password</action>
+				</password>
+				<manageIssues>
+					<label>manage issues</label>
+					<resource>bug</resource>
+					<action>index</action>
+					<controller>bug</controller>
+					<privilege>index</privilege>
+				</manageIssues>
+				<submitIssue>
+					<label>Submit an issue</label>
+					<resource>bug</resource>
+					<action>create</action>
+					<controller>bug</controller>
+					<privilege>create</privilege>
+				</submitIssue>
+			</pages>
+		</account>
+		<snippets>
+			<label>Snippets</label>
+			<resource>snippet</resource>
+			<privilege>index</privilege>
+			<uri></uri>
+			<pages>
+				<listsnippets>
+					<controller>snippet</controller>
+					<label>my snippets</label>
+					<resource>snippet</resource>
+					<privilege>index</privilege>
+					<action>index</action>
+					<params>
+						<account>true</account>
+					</params>
+				</listsnippets>
+				<newsnippet>
+					<controller>snippet</controller>
+					<label>new snippet</label>
+					<resource>snippet</resource>
+					<privilege>create</privilege>
+					<action>create</action>
+				</newsnippet>
+			</pages>
+		</snippets>
+		<categories>
+			<label>Categories</label>
+			<resource>category</resource>
+			<privilege>index</privilege>
+			<uri></uri>
+			<pages>
+				<listcategories>
+					<controller>category</controller>
+					<label>List categories</label>
+					<resource>category</resource>
+					<privilege>index</privilege>
+					<action>index</action>
+				</listcategories>
+				<newcategory>
+					<controller>category</controller>
+					<label>new category</label>
+					<resource>category</resource>
+					<privilege>create</privilege>
+					<action>create</action>
+				</newcategory>
+			</pages>
+		</categories>
+	</nav>
+</configdata>

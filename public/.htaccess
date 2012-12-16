@@ -1,0 +1,13 @@
+SetEnv APPLICATION_ENV production 
+SetEnv BASE_URL_ENV dsnippet
+#SetEnv PHPRC "C:\Users\mark prades\Documents\www\free.fr\afrobytes\projects\experiences\backbone\snippetmanager\public"
+
+
+
+RewriteEngine On
+RewriteBase /dsnippet
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]

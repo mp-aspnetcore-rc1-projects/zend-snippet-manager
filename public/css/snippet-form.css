@@ -1,0 +1,25 @@
+/**
+form.css
+styles du formulaire
+**/
+@charset "utf-8";
+.snippet-form-template{
+  display:inline-block;
+}
+input , textarea{
+  padding: 4px;
+  border-radius: 3px;
+  border:1px solid #AAAAAA;
+}
+input[type=submit]{
+  max-width: 100px;
+}
+form{
+  display: inline-block;
+}
+select{
+  padding:3px;
+  border-radius:4px;
+  border:1px solid #AAAAAA;
+  min-width:30%;
+}

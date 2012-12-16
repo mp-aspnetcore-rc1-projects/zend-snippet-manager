@@ -1,0 +1,18 @@
+<?
+if (!$this->account):
+?>
+<div>
+	<a
+		href="<?= $this->url(array('controller' => 'account', "action" => 'login'),"default") ?>">Login
+		to your account</a> | <a
+		href='<?= $this->url(array("action" => 'register','controller'=>"account"),"default") ?>'>Register</a>
+</div>
+<? else: ?>
+<div>
+	Welcome back, <a
+		href='<?= $this->url(array("controller" => "account", "action" => "index")) ?>'>
+		<?=$this->escape($this->account->username) ?>
+	</a> | <a
+		href='<?= $this->url(array("controller" => "account", "action" => "logout")) ?>'>Logout</a>
+</div>
+<? endif; ?>

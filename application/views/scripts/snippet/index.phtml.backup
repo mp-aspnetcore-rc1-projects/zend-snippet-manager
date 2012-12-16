@@ -1,0 +1,32 @@
+<?$this->headTitle()->append($this->title)?>
+<p>
+  <a href="<?=$this->url(array("action"=>"create"))?>"><?=$this->translate("Create new snippet")?></a>
+</p>
+<table>
+  <tr> <th>Id</th> <th>Title</th> <th>Description</th> <th>Category</th></tr>
+  <?
+  if (count($this->snippets) > 0):
+
+//echo $this->snippets;
+//    foreach ($this->snippets as $snippet):
+//      echo "<tr class='{$this->cycle(array('even', 'odd'))->prev()}' ";
+//      echo"<td>{$this->escape($snippet->id)}</td>";
+//      echo"<td>{$this->escape($snippet->title)}</td>";
+//      echo"<td>{$this->escape($snippet->description)}</td>";
+      /*       * $category =$snippet->findParentRow("Application_Model_DbTable_Category");
+        echo"<td>{$this->escape($category->title)}</td>";* */
+//      echo"<td>{$this->escape($snippet->GetSnippetCategoryName())}</td>";
+//
+//      echo"</tr>";
+//    endforeach;
+    $this->cycle(array('even','odd'),"rows");
+    echo $this->partialLoop()->setObjectKey('snippet')->partialLoop('partials/_snippet.phtml',$this->snippets);
+  else:
+    echo "<tr> <td colspan='4'> No snippet found </td> </tr>";
+  endif;
+  ?>
+</table>
+<h2>Test Helper</h2>
+<? //var_dump($this->snippets) 
+echo $this->test();
+?>

@@ -1,0 +1,22 @@
+/* 
+    Document   : search-form.css
+    Created on : 12 mai 2012, 21:20:45
+    Author     : mark prades
+    Description:
+        Purpose of the stylesheet follows.
+*/
+div.search-form{
+  display:inline-block;
+}
+li.form:hover{
+  background: #57C2C2 !important ;
+}
+
+.search-form input{
+  border:1px solid #999;
+}
+.search-form button{
+    border:1px solid #999;
+    background: #555;
+    color:#EEE;
+}

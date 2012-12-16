@@ -1,0 +1,17 @@
+<?php
+$this->layout()->categories = $this->action("category-list", "category");
+?>
+<ul>
+  <li><?= $this->translate("Home") ?></li>
+  <li><a href='<?= $this->url(array("controller" => "snippet", "action" => "index"), null, true) ?>' ><?= $this->translate("Languages") ?></a>
+    <?= $this->layout()->categories ?>
+  </li>
+  <li>
+    <a href='<?= $this->url(array("controller" => "index", "action" => "about")) ?>'><?= $this->translate("About") ?></a>
+  </li>
+  <li><a href='<?= $this->url(array("controller" => "index", "action" => "help")) ?>' ><?= $this->translate("Help") ?></a></li>
+  <!--<li><?= $this->translate("Contact") ?></a></li>-->
+  <li><a href='<?= $this->baseUrl("app.html") ?>'><?= $this->translate("Dsnippet HTML5 app!") ?></a></li>
+  <li class='form'>
+  </li>
+</ul>

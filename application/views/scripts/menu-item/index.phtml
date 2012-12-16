@@ -1,0 +1,27 @@
+<p>
+	<a href="<?=$this->url(array("action"=>"create"))?>">Add new menu item</a>
+</p>
+<table>
+	<caption>Menu items</caption>
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>label</th>
+			<th>menu id</th>
+			<th>link</th>
+			<th>position</th>
+			<th colspan="2"></th>
+		</tr>
+	</thead>
+	<tbody>
+	<? if(count($this->menuItems)>0):?>
+	<?=$this->partialLoop()->setObjectKey("menuItem")->partialLoop("partials/menu-item-partial.phtml",$this->menuItems)?>
+	<? else:?>
+	<tr><td colspan="7">No item found</td>
+	</tr>
+	<?endif; ?>
+	</tbody>
+</table>
+
+<?php $layoutPath = Zend_Layout::getMvcInstance()->getLayoutPath();?>
+<?=$this->partial("partials/delete.phtml")?>

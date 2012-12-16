@@ -1,0 +1,44 @@
+<? if ($this->snippet != null): ?>
+  <div>
+  <div class='snippet-username'>
+  <a href='<?=$this->url(array("controller"=>"snippet","action"=>"index","user"=>$this->snippet->user_id),null,true)?>'>by <?=$this->escape($this->snippet->getAuthorName())?></a>
+  </div>
+    <div class="snippet-category">
+    
+      <?= "{$this->translate("Language")} : <a title='Display all snippets from this langage' href='{$this->url(array("action"=>"index","category_id"=>$this->snippet->category_id),null,true)}'>{$this->escape($this->snippet->GetSnippetCategoryName())}</a>" ?>
+    </div>
+    <div class="snippet-description">
+      <?= "{$this->translate("Description")} : {$this->escape($this->snippet->description)}" ?>
+    </div>
+    <div>
+      <pre class="prettyprint linenums">
+      
+<?= $this->escape($this->snippet->content) ?>
+
+
+      </pre>
+    </div>
+    <div class='snippet-show-menu'>
+    <?
+    // show update or delete menu
+    if($this->account):
+     if($this->account->role == "administrator" || $this->snippet->belongsToUser($this->account->id)):
+     ?>
+      <button><a href='<?=$this->url(array("action"=>"update","id"=>$this->snippet->id))?>'>Update</a></button><button><a class='delete' href='<?=$this->url(array("action"=>"delete","id"=>$this->snippet->id))?>'>Delete</a></button>
+     <?
+     endif;
+    endif;
+    ?>
+    </div>
+
+  </div>
+<? else: ?>
+  no snippet found
+<? endif; ?>
+
+
+<? $this->headScript()->appendFile("http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js") ?>    <? $this->headLink()->appendStylesheet($this->baseUrl("css/prettify.css")) ?>
+<?=
+$this->inlineScript()->appendFile($this->baseUrl('js/prettyprint.js'))?>
+<?=$this->inlineScript()->appendFile($this->baseUrl('js/jquery.js'))?>
+<?=$this->inlineScript()->appendFile($this->baseUrl('js/delete.js'))?>

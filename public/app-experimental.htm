@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>DSNIPPET HTML5 app</title>
+    <link href="css/app.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/custom-theme/jquery-ui-1.8.20.custom.css" />
+    <link rel='stylesheet' href="css/prettify.css" />
+    <link rel="shortcut icon" type="image/png" href="images/mp.png" />
+  </head>
+  <body>
+    <!-- no script -->
+    <noscript>
+    <h1>Please enable Javascript.</h1>
+    <p>This web application uses the latest HTML5 technologies,
+      therefore javascript is needed to display the site's content.</p>
+    </noscript>
+
+    <!-- place holders -->
+    <div id='container'     class='container'>
+      <div id='app-head' class='app-head'></div>
+      <div class='app-body'>
+        <div id="category-list" class="category-list left ">&nbsp;</div>
+        <div id="snippet-list" class="snippet-list "></div>
+      </div>
+      <div class='footer'><a href="mailto:mparaiso@online.fr" >Design : M.Paraiso , contact mparaiso_at_online.fr</a></div>
+    </div>
+    <div id="snippet-form"   class='snippet-form'>    </div>
+    <div id='progress-dialog'      class='progress-dialog'></div>
+    <div id="login-form" class='login-form'></div>
+    <div id='about' class='about'></div>
+    <div id="help" class="help"></div>
+    <!-- templates -->
+
+    <!-- progress dialog template -->
+    <script type="text/template" id="progress-dialog-template">
+      <p><%-message%></p>
+      <img class='ajax-loader' src="images/ajax-loader.gif" alt="" />
+    </script>
+
+    <!-- SNIPPET LIST TEMPLATE -->
+    <script type='text/template' id='snippet-list-template'>
+      <h3>
+        <% print(typeof(subtitle)!="undefined"? subtitle: "Snippet List") %>
+      </h3>
+      <ul>
+        <% if(snippets.length>0){ %>
+        <% _.each(snippets,function(snippet){%>
+        <li  class="snippet-item">
+          <div data-id="<%- snippet.id %>" class="snippet-head">
+            <%if(typeof(user_id)!='undefined' && _.include(favorites,snippet.id) ){%>
+            <div class='snippet-favorite'>Favorite</div>
+            <%}%>
+            <div class="snippet-category-title rsight">
+              <%- _.find(categories,function(category){
+              return category.id == snippet.category_id
+              }).title %>
+            </div>
+            <div class="snippet-title"> <%- snippet.title %> </div>
+            <div class="snippet-description">
+              <%- snippet.description %>
+            </div>
+
+          </div><!-- end snippet-head -->
+          <div class='snippet-content'>
+            <% if(typeof(user_id)!='undefined'){%>
+            <ul class='snippet-commands'>
+              <%if( snippet.user_id==user_id){%>
+              <li>
+                <button  class='update-snippet' data-id='<%-snippet.id%>'  >
+                  <a href="#">Update</a>
+                </button>
+              </li>
+              <li>
+                <button class='delete-snippet' data-id='<%-snippet.id%>'>
+                  <a href="#"  >Delete</a>
+                </button></li>
+              <%}%>
+              <li>
+                <button  class='favorite-snippet' data-id='<%-snippet.id%>' >
+                  <a href="#" >Favorite</a>
+                </button>
+              </li>
+            </ul>
+            <% } %>
+            <pre class='prettyprint linenums'>
+
+<%- snippet.content %>
+
+            </pre>
+          </div><!-- end snippet-content -->
+          </li>
+          <%})%>
+        <% }else{ %>
+        <li class='error'>
+        No snippet founds for this category
+        </li>
+        <%}%>
+    </ul>
+  </script>
+
+  <!-- CATEGORY LISTs TEMPLATE -->
+  <script type="text/template" id='category-list-template'>
+    <h3>Languages</h3>
+    <ul 
+      id="category-list" >
+      <li  class='category-item <%-category_id==null?"selected":""%>'  ><a href='#'>All snippets</a></li>
+      <% _.each(categories,function(category){ %>
+        <li data-id="<%- category.id %>"
+        class='category-item <%- category.id==category_id?"selected":"" %>'>
+        <%- category.title %>
+        </li>
+        <% }) %>
+    </ul>
+  </script>
+
+  <!-- HEAD TEMPlATE -->
+  <script type="text/template" id='app-head-template'>
+    <a href='/'><div class="logo"></div></a>
+    <div class='html-logo'></div>
+    <div class='menu'>
+      <div class='commands'>
+        <ul  class='snippet-menu'>
+          <% if(typeof(username)!='undefined' && typeof(user_id)!=undefined){%>
+            <li class='first' >
+            <b><a id='account-link' class='account-link' title='<%-username%>' href='#'>&nbsp;Welcome&nbsp;back&nbsp; <%-username%> !</a></b>
+            </li>
+            <li >
+            <a id='new-snippet-link' href="#">&nbsp;New&nbsp;snippet</a>
+            </li>
+            <li>
+            <a id='my-snippets-link' href="#">My snippets</a>
+            </li>
+            <li>
+            <a id='favorite-snippets-link' href="#">Favorites</a>
+            </li>
+            <li>
+            <a id='logout-link' href="javascript:void 0;">Logout</a>
+            </li>
+
+            <%}else{%>
+            <li class='first'>
+            <a  id='login-link' href='/account/login'>Login</a>
+            </li>
+            <li>
+            <a title='Register a new account' id="register-link" href="/account/register">Register</a>
+            </li>
+            <%}%>
+          <li>
+          <a title="Application Help"  id='help-link' href="#">Help</a>
+          </li>
+          <li>
+          <a title="Applcation's informations" id='about-link' href="#">
+            About
+          </a>
+          </li>
+          <li>
+          <a title='Reload the application' href="">Reload</a>
+          </li>
+      </ul></div>
+      <div  class="search">
+        <form id='search-form' action='javascript:void 0;' >
+          <input required  id='search'  size="50" type="text" name='search'/>
+          <button type='submit' id='search-button'>Search</button>
+        </form>
+      </div>
+    </div>
+  </script>
+
+  <!-- SNIPPET FORM TEMPLATE -->
+  <script id='snippet-form-template' type="text/template">
+    <%=snippet_form%>
+  </script>
+
+  <!-- LOGIN FORM TEMPLATE -->
+  <script id='login-form-template' type="text/template">
+    <%=login_form%>
+  </script>
+
+  <!-- ABOUT TEMPLATE -->
+  <script id='about-template' type="text/template">
+    <h1>DSnippet</h1>
+    <h2>Save ,share and find code</h2>
+    <p>Version : v0.08</p>
+    <p>License : </p>
+    <p>Author : M.Paraiso</p>
+    <p>&copy; 2012 M.Paraiso</p>
+    <p>Contact : mparaiso@online.fr</p>
+  </script>
+
+
+  <!-- HELP TEMPLATE -->
+  <script id='help-template' type="text/templat">
+
+    <h2>Introduction</h2>
+    <p>DSnippet helps developpers to save code snippets, share them and
+    search in a codebase by providing a web application usable in any browser.
+    With DSnippet developpers no longer need to search the net or their computer
+    for a specific code, they can save a snippet on the website , as a reminder of how
+    they solve an issue or a code of interest.
+    DSnippet uses client side technologies like jQuery , Backbone , Underscore , RequireJS and Prettify.js
+    </p>
+    <h2>Registration process</h2>
+    <p>You can search public snippets without registering.
+    to save , edit , and favorite other people snippets , go to the registration page , fill the form 
+    and a confirmation mail will be sent before you can actually use your account.
+    </p>
+    <h2>Snippet edition</h2>
+    <p>You can save snippets in various langages , update and delete them
+    make it public or private , or favorite other people snippets.
+    </p>
+    <h2>Snippet search</h2>
+    <p>In the current application version , suggestions based on the snippet title are being made as you type in the
+    the search box. Selecting one suggestion will display the selected title.
+    Pressing search will list every snippets that fits the search input.
+    </p>
+    <h2>Snippet definition guidelines</h2>
+    <ul>
+      <li>Add a descriptive title that explains what the snippet is about.
+      If in a language , a snippet uses a framework or a library , prefix the title with :
+      LIBRARY - FRAMEWORK - snippet title
+      </li>
+      <li>Add a short description, like a sentence explaining what problem the snippet resolves</li>
+      <li>Avoid citations , copying other people's code. If you do , provide the source url as a comment at the top of the snippet and ask for permissions. </li>
+    </ul>
+  </script>
+
+  <script type="text/javascript" src='js/app/lib/jquery.js'></script>
+  <script type="text/javascript" src='js/app/util/plugin/jquery/serializetoarray.js'></script>
+  <script type="text/javascript" src='js/app/lib/jquery-ui.js'></script>
+  <script type="text/javascript" src='js/app/lib/underscore.min.js'></script>
+  <script type="text/javascript" src='js/app/lib/backbone.min.js'></script>
+  <script type="text/javascript" src="js/prettify.js"></script>
+  <script data-main='js/app/main-experimental.js' type="text/javascript" src='http://cdnjs.cloudflare.com/ajax/libs/require.js/1.0.7/require.min.js' charset="utf-8"></script>
+
+</body>
+</html>

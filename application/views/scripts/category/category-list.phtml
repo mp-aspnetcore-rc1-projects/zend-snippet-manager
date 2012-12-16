@@ -1,0 +1,11 @@
+ <ul class="sub-nav container_16">
+<?php
+echo "<li>".
+     "<a href='{$this->escape($this->url(array("action"=>"index","controller"=>"snippet"),null,true))}'>{$this->translate("All")}</a>".
+     "</li>";
+ 
+foreach ($this->categories as $category) {
+	echo "<li><a href='{$this->escape($this->url(array('action'=>'index','controller'=>'snippet','category_id'=>$category->id)))}'>{$this->escape($category->title)}</a></li>";
+}
+?>
+</ul>

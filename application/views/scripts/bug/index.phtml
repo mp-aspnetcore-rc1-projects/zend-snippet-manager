@@ -1,0 +1,47 @@
+
+<p>
+  <a href='<?= $this->url(array("action" => "create")) ?>'><?= $this->translate("New bug report") ?></a>
+</p>
+<p class="form-filter">Filter bug report list :
+  <?= $this->filterForm ?>
+</p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Author</th>
+<th>Created</th>
+<th>Url</th>
+<th>Description</th>
+<th>Priority</th>
+<th>Status</th>
+<th colspan='3'></th>
+</tr>
+</thead>
+<tbody>
+<?=$this->partialLoop("partials/buglist-partial.phtml",$this->paginator);?>
+</tbody>
+</table>
+<?=$this->paginationControl($this->paginator,"Sliding","partials/pagination-control.phtml")?>
+<?/*=
+$this->grid(
+        array(
+            "class" => "bug",
+            "head" => array("id" => "id", "author" => "author",  "created" => "created","url" => "url",
+                "description" => "description", "priority" => "priority", "status" => "status"),
+            "body" => $this->bugs,
+            "extraColumns" => array(
+                array("label" => "Update",
+                    "content" => "<a href='" . $this->url(array("action" => "update")) . "/id/{{id}}'>Update</a>"
+                ),
+                array("label" => "Delete",
+                    "content" => "<a class='delete' href='" . $this->url(array("action" => "delete")) . "/id/{{id}}'>Delete</a>"
+                )
+            )
+        )
+)
+*/?>
+<? $this->headScript()->appendFile($this->baseUrl("js/jquery.js")) ?>
+<?= $this->inlineScript()->appendFile($this->baseUrl("js/delete.js")) ?>
+<?=
+$this->inlineScript()->appendFile($this->baseUrl("js/time.js"))?>

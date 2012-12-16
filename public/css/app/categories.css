@@ -1,0 +1,36 @@
+
+.category-list{
+  display: inline-block;
+  width: 19%;
+  margin:0;
+  padding:0;
+  min-width: 180px;
+  background-color:#333;
+  color:#EEE;
+  text-align:left;
+  height:100%;
+  border-left: 1px solid #000;
+}
+.category-list h3{
+  text-align: center;
+}
+.category-list li{
+  font-size:14px;
+  border-top:1px solid #444;
+  border-bottom: 1px solid #2A2A2A;
+  padding:3px 20px;
+  cursor: pointer;
+}
+
+
+.category-list li:hover{
+  background-color:#292929;
+
+}
+
+
+.category-list li:active,.category-list li.selected{
+  background-color:#51C0C0;
+  text-shadow: 1px 1px 1px #666;
+}
+

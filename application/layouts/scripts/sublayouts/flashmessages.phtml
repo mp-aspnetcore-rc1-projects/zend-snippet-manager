@@ -1,0 +1,10 @@
+<? /* @NOTE @ZEND afficher les messages de flash messenger dans le layout */ ?>
+<?
+if (is_array($this->messages)):
+  echo "<ul class='messages'>";
+  foreach ($this->messages as $message):
+    echo "<li>$message</li>";
+  endforeach;
+  echo "</ul>";
+endif;
+?>

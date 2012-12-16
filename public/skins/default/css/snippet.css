@@ -1,0 +1,30 @@
+/* SNIPPET
+-------------------------------------------------------*/
+.snippet-description,.snippet-category {
+	background-color: #CCC;
+	margin: 0px 0px 0px 0px;
+	padding: 5px 5px 9px 5px;
+	color: #555;
+}
+.snippet-username{
+	float:right;
+	padding:5px 10px 0 0 ;
+	font-size: 0.8em;
+}
+.snippet-langage {
+	text-align: center;
+	vertical-align: bottom;
+	padding: 25px 0 0 0;
+	margin: 18px 0 0 0;
+	background-color: #333;
+	color: #AAA;
+	background-color: #333;
+}
+
+.snippet-langage:hover {
+	background-color: #000;
+}
+
+.snippet-item { /* 	padding:0 0 25px 0; */
+	margin: 0 0 15px 0;
+}

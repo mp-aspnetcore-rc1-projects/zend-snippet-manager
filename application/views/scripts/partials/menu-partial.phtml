@@ -1,0 +1,9 @@
+<?php $view = Zend_Layout::getMvcInstance()->getView();?>
+<tr>
+<td><?=$this->id?></td>
+<td><a href='<?=$view->url(array("action"=>"render","id"=>$this->id))?>' title='show menu'><?=$this->name?></a></td>
+<td><?=$this->access_level?></td>
+<td><a href="<?=$view->url(array("controller"=>"menu-item","action"=>"index","menu_id"=>$this->id))?>">manage menu items</a></td>
+<td><a href='<?=$view->url(array("action"=>"update","id"=>$this->id))?>'>Update</a></td>
+<td><a class="delete" href='<?=$view->url(array("action"=>"delete","id"=>$this->id))?>'>Delete</a></td>		
+</tr>

@@ -1,0 +1,48 @@
+<?php
+if (count($this->snippets) > 0):
+$paginator = $this->paginationControl($this->snippets,'Sliding',"partials/snippet-paginator.phtml");
+
+
+foreach($this->snippets as $snippet):
+?>
+<div class='snippet-item grid_16'>
+	<a
+		href="<?=$this->url(array('action'=>'index','category_id'=>$snippet->category_id))?>">
+		<div class='grid_2 alpha snippet-langage'>
+			<p>
+				<?=$this->escape($snippet->GetSnippetCategoryName())?>
+			</p>
+		</div>
+	</a>
+	<? $url = $this->url(array("action"=>"show","id"=>$snippet->id)) ?>
+
+	<div class="grid_14 omega">
+
+		<h2>
+			<a href='<?=$url?>'><?=$this->escape($snippet->title)?> </a>
+		</h2>
+		<div style='float: right; font-size: 0.7em'>
+			<a href='<?=$this->url(array("controller"=>"snippet","action"=>"index","user"=>$snippet->user_id))?>'>by
+			<?=$this->escape($snippet->getAuthorName())?>
+			</a>
+		</div>
+		<p class='snippet-description'>
+			<a href='<?=$url?>'><?=substr($this->escape($snippet->description),0,200)?>
+				...[+]</a>
+
+		</p>
+
+	</div>
+
+</div>
+
+<?
+endforeach;
+?>
+<div class="paginator">
+<?=$paginator?>
+</div>
+<?
+else:
+echo "<tr> <td colspan='4'> No snippet found </td> </tr>";
+endif;
